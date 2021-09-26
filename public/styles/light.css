@@ -1,0 +1,46 @@
+:root {
+	/* focus-visible */
+	--focus-visible-shadow: var(--color-primary-700);
+
+	/* page */
+	--page-color: var(--color-gray-800);
+	--page-background: var(--color-gray-100);
+
+	/* nprogress */
+	--nprogress-background: var(--color-primary-700);
+
+	/* thumb */
+	--thumb: var(--color-white);
+	--thumb-shadow: hsla(0, 0%, 100%, 0.5);
+	--thumb-highlight: hsla(0, 0%, 0%, 0.25);
+	--track-inactive: var(--color-gray-400);
+	--track-active: var(--color-primary-700);
+
+	/* day-card */
+	--day-card-background: var(--color-white);
+	--day-card-day-color: var(--color-gray-700);
+
+	/* teachers */
+	--teachers-background: var(--color-white);
+	--teachers-shadow: 0 0.1em 0.4em 0.1em rgba(2, 2, 2, 0.3);
+
+	/* time */
+	--time-background: var(--color-white);
+
+	/* group-selection */
+	--group-selection-shadow: 0 0 0 2px var(--color-primary-700);
+	--groups-dropdown-menu-background: var(--color-white);
+	--groups-dropdown-menu-shadow: 0 0.1em 0.4em 0 rgba(2, 2, 2, 0.16);
+
+	/* lesson */
+	--lesson-color: var(--color-primary-900);
+	--lesson-background: var(--color-primary-100);
+	--lesson-odd-color: var(--color-white);
+	--lesson-odd-background: var(--color-primary-600);
+	--lesson-focus-visible-shadow: var(--color-primary-700);
+
+	/* spock-popup */
+	--spock-background-color: hsla(220, 4%, 62%, 0.3);
+
+	color-scheme: light dark;
+}

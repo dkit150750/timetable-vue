@@ -1,0 +1,116 @@
+:root {
+	--color-primary-100: hsl(234, 100%, 89%);
+	--color-primary-200: hsl(235, 100%, 85%);
+	--color-primary-300: hsl(236, 100%, 81%);
+	--color-primary-400: hsl(237, 100%, 77%);
+	--color-primary-500: hsl(237, 83%, 71%);
+	--color-primary-600: hsl(237, 65%, 63%);
+	--color-primary-700: hsl(237, 54%, 55%);
+	--color-primary-800: hsl(237, 50%, 47%);
+	--color-primary-900: hsl(237, 50%, 39%);
+	--color-primary-950: hsl(237, 50%, 27%);
+	--color-black: hsl(0, 0%, 0%);
+	--color-white: hsl(0, 0%, 100%);
+	--color-gray-50: hsl(210, 20%, 98%);
+	--color-gray-100: hsl(220, 14%, 96%);
+	--color-gray-150: hsl(60, 10%, 96%);
+	--color-gray-180: hsl(60, 3%, 94%);
+	--color-gray-200: hsl(30, 4%, 91%);
+	--color-gray-300: hsl(223, 9%, 84%);
+	--color-gray-400: hsl(218, 11%, 65%);
+	--color-gray-500: hsl(220, 4%, 46%);
+	--color-gray-600: hsl(215, 14%, 34%);
+	--color-gray-700: hsl(217, 19%, 27%);
+	--color-gray-800: hsl(213, 10%, 17%);
+	--color-gray-900: hsl(220, 11%, 11%);
+	--color-gray-1000: hsl(225, 10%, 8%);
+	--color-gray-1100: hsl(240, 13%, 3%);
+	--color-red-100: hsl(0, 100%, 98%);
+	--color-red-200: hsl(0, 95%, 92%);
+	--color-red-300: hsl(0, 97%, 85%);
+	--color-red-400: hsl(0, 95%, 75%);
+	--color-red-500: hsl(0, 88%, 68%);
+	--color-red-600: hsl(0, 76%, 57%);
+	--color-red-700: hsl(0, 61%, 48%);
+	--color-red-800: hsl(0, 56%, 39%);
+	--color-red-900: hsl(0, 47%, 31%);
+	--color-green-100: hsl(136, 100%, 97%);
+	--color-green-200: hsl(139, 73%, 87%);
+	--color-green-300: hsl(141, 60%, 75%);
+	--color-green-400: hsl(143, 55%, 62%);
+	--color-green-500: hsl(145, 46%, 51%);
+	--color-green-600: hsl(148, 48%, 43%);
+	--color-green-700: hsl(150, 48%, 35%);
+	--color-green-800: hsl(152, 45%, 28%);
+	--color-green-900: hsl(152, 42%, 23%);
+	--color-purple-100: hsl(270, 100%, 98%);
+	--color-purple-200: hsl(268, 90%, 92%);
+	--color-purple-300: hsl(265, 86%, 86%);
+	--color-purple-400: hsl(262, 81%, 77%);
+	--color-purple-500: hsl(260, 73%, 70%);
+	--color-purple-600: hsl(259, 59%, 59%);
+	--color-purple-700: hsl(258, 50%, 52%);
+	--color-purple-800: hsl(256, 44%, 42%);
+	--color-purple-900: hsl(254, 41%, 34%);
+}
+
+html,
+body,
+#app {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-family: sans-serif;
+	scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+	width: 0;
+}
+
+.body__lock {
+	overflow: hidden;
+}
+
+#nprogress {
+	pointer-events: none;
+}
+
+#nprogress .bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1031;
+
+	width: 100%;
+	height: 4px;
+
+	background-color: var(--nprogress-background);
+
+	opacity: 0.75;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.sr-only {
+	position: absolute;
+
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+
+	border: 0;
+
+	overflow: hidden;
+
+	clip: rect(0, 0, 0, 0);
+}

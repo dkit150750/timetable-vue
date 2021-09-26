@@ -1,0 +1,158 @@
+<template>
+	<div class="teachers-tooptip" @click.self="$emit('update:modelValue', false)">
+		<div class="teachers-tooptip__inner">
+			<div v-if="!isEmptyOdd" class="teachers-tooptip__names">
+				<span v-if="formattedFirstOddTeachers?.name" class="teachers-tooptip__name">
+					{{ formattedFirstOddTeachers.name }}
+				</span>
+				<span v-if="formattedSecondOddTeachers?.name" class="teachers-tooptip__name">
+					{{ formattedSecondOddTeachers.name }}
+				</span>
+			</div>
+			<div v-if="!isEmptyEven" class="teachers-tooptip__names">
+				<span v-if="formattedFirstEvenTeachers?.name" class="teachers-tooptip__name">
+					{{ formattedFirstEvenTeachers.name }}
+				</span>
+				<span v-if="formattedSecondEvenTeachers?.name" class="teachers-tooptip__name">
+					{{ formattedSecondEvenTeachers.name }}
+				</span>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script setup lang="ts">
+import { PropType } from 'vue';
+
+interface Item {
+	id: number;
+	name: string;
+}
+
+defineEmits({
+	'update:modelValue': null,
+});
+
+const properties = defineProps({
+	modelValue: {
+		type: Boolean,
+		required: true,
+	},
+	firsrEvenTeacher: {
+		type: Object as PropType<Item>,
+		default: () => ({ id: 1, name: 'пусто' }),
+		required: false,
+	},
+	secondEvenTeacher: {
+		type: Object as PropType<Item>,
+		default: () => ({ id: 1, name: 'пусто' }),
+		required: false,
+	},
+	firsrOddTeacher: {
+		type: Object as PropType<Item>,
+		default: () => ({ id: 1, name: 'пусто' }),
+		required: false,
+	},
+	secondOddTeacher: {
+		type: Object as PropType<Item>,
+		default: () => ({ id: 1, name: 'пусто' }),
+		required: false,
+	},
+});
+
+const getFormattedTeachers = (object: Item) => ({
+	id: object.id,
+	name: object.name === 'пусто' ? null : object.name === 'нет' ? '—' : object.name,
+});
+
+const formattedFirstEvenTeachers = computed(() => getFormattedTeachers(properties.firsrEvenTeacher));
+const formattedSecondEvenTeachers = computed(() => getFormattedTeachers(properties.secondEvenTeacher));
+const formattedFirstOddTeachers = computed(() => getFormattedTeachers(properties.firsrOddTeacher));
+const formattedSecondOddTeachers = computed(() => getFormattedTeachers(properties.secondOddTeacher));
+
+const isEmptyEven = computed(() => !formattedFirstEvenTeachers.value.name && !formattedSecondEvenTeachers.value.name);
+const isEmptyOdd = computed(() => !formattedFirstOddTeachers.value.name && !formattedSecondOddTeachers.value.name);
+</script>
+
+<style>
+.teachers-tooptip {
+	position: absolute;
+	top: calc(100% + 0.4em);
+	left: 1em;
+	z-index: 100;
+
+	width: 90%;
+
+	border-radius: 0.4em;
+
+	background-color: var(--teachers-background);
+
+	box-shadow: var(--teachers-shadow);
+}
+
+.teachers-tooltip-enter-active {
+	transition: all 0.1s ease-in;
+}
+
+.teachers-tooltip-leave-active {
+	transition: all 0.15s ease-out;
+}
+
+.teachers-tooltip-enter-from,
+.teachers-tooltip-leave-to {
+	opacity: 0;
+	transform: translateY(5px);
+}
+
+.teachers-tooptip::before {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	content: '';
+	z-index: -1;
+}
+
+.teachers-tooptip__inner {
+	display: grid;
+	grid-auto-rows: 1.4rem;
+	align-items: center;
+
+	padding: 0.4em 0;
+}
+
+.teachers-tooptip__names {
+	position: relative;
+
+	display: grid;
+	grid-auto-columns: 1fr;
+	grid-auto-flow: column;
+	gap: 1em;
+
+	margin: 0;
+	padding: 0 0.6em;
+}
+
+.teachers-tooptip__name {
+	user-select: none;
+}
+
+.teachers-tooptip__names .teachers-tooptip__name:nth-child(2)::before {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	content: '';
+
+	display: block;
+
+	width: 2px;
+	height: 1em;
+
+	border-radius: 1em;
+
+	background-color: currentColor;
+
+	transform: translate(-50%, -50%);
+}
+</style>
