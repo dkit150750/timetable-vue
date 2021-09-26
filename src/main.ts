@@ -14,9 +14,4 @@ const routes = setupLayouts(generatedRoutes);
 export const createApp = ViteSSG(App, { routes }, (context) => {
 	// install all modules under `modules/`
 	Object.values(import.meta.globEager('./modules/*.ts')).map((index) => index.install?.(context));
-
-	context.router.beforeEach((to) => {
-		console.log(to);
-		return true;
-	});
 });
