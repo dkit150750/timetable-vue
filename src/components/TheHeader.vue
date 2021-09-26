@@ -31,12 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import routes from 'pages-generated';
-
-console.log(routes);
-
 const route = useRoute();
-console.log(route);
 </script>
 
 <style>
