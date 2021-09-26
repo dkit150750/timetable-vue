@@ -285,6 +285,7 @@ const blurHandler = () => {
 	justify-self: flex-end;
 	align-self: center;
 
+	line-height: 1.2;
 	text-align: end;
 }
 
