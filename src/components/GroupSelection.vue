@@ -21,9 +21,13 @@
 				:class="{ 'groups-dropdown-menu-overlay--open': isOpenDropdownMenu }"
 				@click="closeHandler"
 			></div>
-			<div class="groups-dropdown-menu" :class="{ 'groups-dropdown-menu--open': isOpenDropdownMenu }">
+			<div
+				v-if="groups.length > 1"
+				class="groups-dropdown-menu"
+				:class="{ 'groups-dropdown-menu--open': isOpenDropdownMenu }"
+			>
 				<div class="groups-dropdown-menu__inner">
-					<ul v-if="groups" class="group-dropdown-menu__list">
+					<ul class="group-dropdown-menu__list">
 						<li v-for="group in groups" :key="group.id" class="groups-dropdown-menu__item">
 							<router-link
 								class="groups-dropdown-menu__link"
@@ -69,6 +73,7 @@ const { activate, deactivate } = useFocusTrap(target);
 const isOpenDropdownMenu = ref(false);
 
 const openHandler = () => {
+	if (properties.groups.length <= 1) return;
 	isOpenDropdownMenu.value = !isOpenDropdownMenu.value;
 	activate();
 };

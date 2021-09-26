@@ -8,22 +8,24 @@
 		<nav class="nav header__nav">
 			<ul class="nav__list">
 				<li class="nav__item">
-					<router-link
-						class="nav__link"
-						:class="{ 'nav__link--active': route.path === '/' }"
-						exact-active-class="nav__link--active"
-						to="/courses/1"
+					<router-link class="nav__link" :class="{ 'nav__link--active': courseValue === '1' }" to="/courses/1"
 						>1 курс</router-link
 					>
 				</li>
 				<li class="nav__item">
-					<router-link class="nav__link" exact-active-class="nav__link--active" to="/courses/2">2 курс</router-link>
+					<router-link class="nav__link" :class="{ 'nav__link--active': courseValue === '2' }" to="/courses/2"
+						>2 курс</router-link
+					>
 				</li>
 				<li class="nav__item">
-					<router-link class="nav__link" exact-active-class="nav__link--active" to="/courses/3">3 курс</router-link>
+					<router-link class="nav__link" :class="{ 'nav__link--active': courseValue === '3' }" to="/courses/3"
+						>3 курс</router-link
+					>
 				</li>
 				<li class="nav__item">
-					<router-link class="nav__link" exact-active-class="nav__link--active" to="/courses/4">4 курс</router-link>
+					<router-link class="nav__link" :class="{ 'nav__link--active': courseValue === '4' }" to="/courses/4"
+						>4 курс</router-link
+					>
 				</li>
 			</ul>
 		</nav>
@@ -31,7 +33,24 @@
 </template>
 
 <script setup lang="ts">
-const route = useRoute();
+import { onBeforeRouteUpdate } from 'vue-router';
+
+const properties = defineProps({
+	course: {
+		type: String,
+		required: false,
+		default: '1',
+	},
+});
+
+const courseValue = ref(properties.course || '1');
+
+onBeforeRouteUpdate(async (to, from) => {
+	if (to.params.course && to.params.course !== from.params.course) {
+		const courseString = Array.isArray(to.params.course) ? to.params.course[0] : to.params.course;
+		courseValue.value = courseString;
+	}
+});
 </script>
 
 <style>
