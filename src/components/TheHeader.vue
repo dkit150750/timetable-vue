@@ -35,15 +35,7 @@
 <script setup lang="ts">
 import { onBeforeRouteUpdate } from 'vue-router';
 
-const properties = defineProps({
-	course: {
-		type: String,
-		required: false,
-		default: '1',
-	},
-});
-
-const courseValue = ref(properties.course || '1');
+const courseValue = ref(useRoute().params.course || '1');
 
 onBeforeRouteUpdate(async (to, from) => {
 	if (to.params.course && to.params.course !== from.params.course) {

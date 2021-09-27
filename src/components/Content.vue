@@ -122,7 +122,10 @@ onBeforeRouteUpdate(async (to, from) => {
 		courseString = Array.isArray(to.params.course) ? to.params.course[0] : to.params.course;
 		getGroups(courseString);
 		getGroup(courseString);
-	} else if (to.params.group !== undefined && to.params.group !== from.params.group) {
+	} else if (to.params.group !== from.params.group) {
+		if (to.params.group === undefined) {
+			getGroup(courseString, '');
+		}
 		const groupString = Array.isArray(to.params.group) ? to.params.group[0] : to.params.group;
 		getGroup(courseString, groupString);
 	}
