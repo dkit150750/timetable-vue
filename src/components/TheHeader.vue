@@ -33,16 +33,17 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeRouteUpdate } from 'vue-router';
+const route = useRoute();
+const courseValue = ref(route.params.course || '1');
 
-const courseValue = ref(useRoute().params.course || '1');
-
-onBeforeRouteUpdate(async (to, from) => {
-	if (to.params.course && to.params.course !== from.params.course) {
-		const courseString = Array.isArray(to.params.course) ? to.params.course[0] : to.params.course;
-		courseValue.value = courseString;
-	}
-});
+watch(
+	() => route.params.course,
+	(course, previousCourse) => {
+		if (course !== previousCourse) {
+			courseValue.value = course;
+		}
+	},
+);
 </script>
 
 <style>
