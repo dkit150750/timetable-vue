@@ -173,16 +173,16 @@ const classObject = computed(() => ({
 	background-size: contain;
 }
 
-.theme-button__icon--null {
+.theme-button__icon--dark {
 	background-image: url('/images/icon-header-1.png');
+}
+
+.theme-button__icon--null {
+	background-image: url('/images/icon-header-2.png');
 }
 
 .theme-button__icon--light {
 	background-image: url('/images/icon-header-3.png');
-}
-
-.theme-button__icon--dark {
-	background-image: url('/images/icon-header-2.png');
 }
 
 @media screen and (min-width: 640px) {
