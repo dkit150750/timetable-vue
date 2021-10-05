@@ -32,6 +32,7 @@
 							<router-link
 								class="groups-dropdown-menu__link"
 								:to="`/courses/${group.course}/groups/${group.slug}`"
+								:tabindex="isOpenDropdownMenu ? 1 : -1"
 								@click="closeHandler"
 								>{{ group.name }}</router-link
 							>
@@ -72,9 +73,10 @@ const { activate, deactivate } = useFocusTrap(target);
 
 const isOpenDropdownMenu = ref(false);
 
-const openHandler = () => {
+const openHandler = async () => {
 	if (properties.groups.length <= 1) return;
 	isOpenDropdownMenu.value = !isOpenDropdownMenu.value;
+	await nextTick();
 	activate();
 };
 const closeHandler = () => {
