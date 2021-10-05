@@ -1,15 +1,27 @@
 <template>
 	<footer class="footer">
 		<div class="footer__container">
-			<button class="footer__copy" @click="openHandler">
+			<button class="footer__copy" @click="openSpock" @focus="isOpenSpock = false">
 				@teleskop150750 <span class="footer__copy--icon"></span>
 			</button>
-			<router-link class="footer__teleskop" to="/teleskop"><span class="footer__teleskop--icon"></span></router-link>
+			<router-link class="footer__teleskop" to="/teleskop" aria-label="личная страница"
+				><span class="footer__teleskop--icon"></span
+			></router-link>
 		</div>
 	</footer>
 
-	<div ref="target" class="spock-popup-wrapper">
-		<TheFooterPopup v-show="isOpenSpock" v-model="isOpenSpock" @closing="closingdHandler" />
+	<div ref="target" class="spock-popup" :class="{ 'spock-popup--open': isOpenSpock }">
+		<button class="spock-popup__button-close" aria-label="закрыть окно" @click="closeSpock()">
+			<carbon-close />
+		</button>
+		<div class="spock-popup__inner">
+			<div class="spock-popup__img-wrapper">
+				<div class="spock-popup__img-inner">
+					<img class="spock-popup__img" src="@/spock-shadow.webp" alt="Спок" />
+				</div>
+			</div>
+			<p class="spock-popup__text">Живи долго и процветай</p>
+		</div>
 	</div>
 </template>
 
@@ -21,26 +33,18 @@ meta:
 <script setup lang="ts">
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 
-const emit = defineEmits({
-	openingPopup: null,
-	closingPopup: null,
-});
-
 const isOpenSpock = ref(false);
-
 const target = ref();
 const { activate, deactivate } = useFocusTrap(target);
 
-const openHandler = async () => {
+const openSpock = async () => {
 	isOpenSpock.value = true;
-	emit('openingPopup');
-	await nextTick();
 	activate();
 };
 
-const closingdHandler = () => {
+const closeSpock = () => {
+	isOpenSpock.value = false;
 	deactivate();
-	emit('closingPopup');
 };
 </script>
 
@@ -98,10 +102,6 @@ const closingdHandler = () => {
 	background-size: contain;
 }
 
-.spock-popup-wrapper {
-	position: absolute;
-}
-
 .footer__teleskop {
 	font-size: 1.2em;
 	text-decoration: none;
@@ -120,7 +120,97 @@ const closingdHandler = () => {
 	background-size: contain;
 }
 
+.footer__teleskop:focus {
+	outline: none;
+}
+
 .footer__teleskop:focus-visible {
 	box-shadow: 0 0 0 2px var(--focus-visible-shadow);
+}
+
+.spock-popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 20;
+
+	display: flex;
+
+	background-color: var(--spock-background-color);
+
+	backdrop-filter: blur(10px);
+
+	opacity: 0;
+
+	pointer-events: none;
+}
+
+.spock-popup--open {
+	opacity: 1;
+
+	pointer-events: all;
+}
+
+.spock-popup__button-close {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+
+	width: 40px;
+	height: 40px;
+	padding: 0;
+
+	color: inherit;
+	font-size: 2rem;
+
+	border: 0;
+
+	background-color: transparent;
+
+	cursor: pointer;
+}
+
+.spock-popup__button-close:focus {
+	outline: none;
+}
+
+.spock-popup__button-close:focus-visible {
+	box-shadow: 0 0 0 2px var(--focus-visible-shadow);
+}
+
+.spock-popup__inner {
+	margin: auto;
+	padding: 1rem;
+}
+
+.spock-popup__img-wrapper {
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+.spock-popup__img-inner {
+	position: relative;
+
+	padding-bottom: 100%;
+}
+
+.spock-popup__img {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	display: block;
+
+	width: 100%;
+	height: 100%;
+
+	object-fit: cover;
+}
+.spock-popup__text {
+	font-weight: 700;
+	font-size: 2em;
+	text-align: center;
 }
 </style>
