@@ -199,6 +199,10 @@ const blurHandler = () => {
 	border: 0;
 
 	background-color: transparent;
+
+	cursor: pointer;
+
+	user-select: none;
 }
 
 .lesson-info:focus {
