@@ -163,7 +163,7 @@ const closeHandler = () => {
 .groups-dropdown-menu {
 	position: absolute;
 	top: calc(100% + 0.5rem);
-	left: -0.4rem;
+	left: -0.5em;
 	z-index: 10;
 
 	border-radius: 0.4rem;
@@ -201,7 +201,7 @@ const closeHandler = () => {
 .groups-dropdown-menu__link {
 	display: block;
 
-	padding: 0.25em 0.4em;
+	padding: 0.25em 0.5em;
 
 	color: inherit;
 	line-height: 1;
