@@ -41,9 +41,9 @@ defineProps({
 
 	width: 100%;
 	max-width: 320px;
-	padding-bottom: 0.4em;
+	padding-bottom: 0.4rem;
 
-	border-radius: 0.8em;
+	border-radius: 0.8rem;
 
 	background-color: var(--day-card-background);
 
@@ -55,7 +55,7 @@ defineProps({
 	justify-content: center;
 	align-items: center;
 
-	min-height: 3em;
+	min-height: 3rem;
 }
 
 .day-card__day {
@@ -64,7 +64,7 @@ defineProps({
 
 	color: var(--day-card-day-color);
 	font-weight: 900;
-	font-size: 1.2em;
+	font-size: 1.2rem;
 	line-height: 1;
 
 	user-select: none;

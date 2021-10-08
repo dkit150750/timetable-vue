@@ -184,9 +184,9 @@ const blurHandler = () => {
 	grid-template-columns: 1.2ch 1fr 5.5ch;
 
 	width: 100%;
-	height: 3em;
+	height: 3rem;
 	margin: 0;
-	padding: 0 0.5em;
+	padding: 0 0.5rem;
 
 	color: var(--lesson-color);
 	color: inherit;
@@ -194,7 +194,7 @@ const blurHandler = () => {
 	font-family: inherit;
 	line-height: 1;
 	letter-spacing: -0.01em;
-	column-gap: 0.3em;
+	column-gap: 0.3rem;
 
 	border: 0;
 
@@ -253,7 +253,7 @@ const blurHandler = () => {
 
 	width: 100%;
 	max-height: 3rem;
-	padding: 0 0.1em;
+	padding: 0 0.1rem;
 
 	text-align: initial;
 	text-overflow: ellipsis;
@@ -273,7 +273,7 @@ const blurHandler = () => {
 .lesson-info--two-name .lesson-info__name--even {
 	height: 100%;
 
-	line-height: 1.5em;
+	line-height: 1.5;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
@@ -294,7 +294,7 @@ const blurHandler = () => {
 }
 
 .lesson-info__cabinet--two-two {
-	font-size: 0.85em;
+	font-size: 0.85rem;
 }
 
 .lesson-info--two-cabinet .lesson-info__cabinet--odd {

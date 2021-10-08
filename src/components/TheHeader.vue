@@ -50,9 +50,9 @@ watch(
 .header {
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: 2em;
+	gap: 2rem;
 
-	padding: 2em 0;
+	padding: 2rem 0;
 }
 
 .header__top {
@@ -63,18 +63,18 @@ watch(
 	width: 100%;
 	max-width: var(--max-width);
 	margin: 0 auto;
-	padding: 0 1em;
+	padding: 0 1rem;
 }
 
-@media screen and (min-width: 340px) {
+@media (min-width: 375px) {
 	.header__top {
-		padding: 0 1.5em;
+		padding: 0 1.5rem;
 	}
 }
 
-@media screen and (min-width: 440px) {
+@media (min-width: 440px) {
 	.header__top {
-		padding: 0 2em;
+		padding: 0 2rem;
 	}
 }
 
@@ -82,19 +82,19 @@ watch(
 	margin: 0;
 
 	font-weight: 600;
-	font-size: 1.9em;
+	font-size: 1.9rem;
 	line-height: 1;
 
 	user-select: none;
 }
 
-@media screen and (min-width: 640px) {
+@media (min-width: 640px) {
 	.header__title {
-		font-size: 3em;
+		font-size: 3rem;
 	}
 }
 
-@media screen and (max-width: 419px) {
+@media (max-width: 419px) {
 	.header__title-span {
 		display: none;
 	}
@@ -104,24 +104,24 @@ watch(
 	width: 100%;
 	max-width: var(--max-width);
 	margin: 0 auto;
-	padding: 0 1em;
+	padding: 0 1rem;
 }
 
-@media screen and (min-width: 340px) {
+@media (min-width: 375px) {
 	.header__nav {
-		padding: 0 1.5em;
+		padding: 0 1.5rem;
 	}
 }
 
-@media screen and (min-width: 440px) {
+@media (min-width: 440px) {
 	.header__nav {
-		padding: 0 2em;
+		padding: 0 2rem;
 	}
 }
 
 .nav__list {
 	display: flex;
-	gap: 0.9em;
+	gap: 0.9rem;
 	justify-content: flex-end;
 
 	margin: 0;
@@ -138,7 +138,7 @@ watch(
 	padding: 0.4em 0.2em;
 
 	color: inherit;
-	font-size: 1.1em;
+	font-size: 1.1rem;
 	white-space: nowrap;
 	text-decoration: none;
 
@@ -147,9 +147,9 @@ watch(
 	user-select: none;
 }
 
-@media screen and (min-width: 360px) {
+@media (min-width: 360px) {
 	.nav__link {
-		font-size: 1.2em;
+		font-size: 1.2rem;
 	}
 }
 

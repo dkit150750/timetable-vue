@@ -136,7 +136,7 @@ onBeforeRouteUpdate(async (to, from) => {
 .content {
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: 2em 0;
+	gap: 2rem 0;
 }
 
 .content__header {
@@ -147,18 +147,18 @@ onBeforeRouteUpdate(async (to, from) => {
 	width: 100%;
 	max-width: var(--max-width);
 	margin: 0 auto;
-	padding: 0 1em;
+	padding: 0 1rem;
 }
 
-@media screen and (min-width: 340px) {
+@media (min-width: 375px) {
 	.content__header {
-		padding: 0 1.5em;
+		padding: 0 1.5rem;
 	}
 }
 
-@media screen and (min-width: 440px) {
+@media (min-width: 440px) {
 	.content__header {
-		padding: 0 2em;
+		padding: 0 2rem;
 	}
 }
 
@@ -166,33 +166,33 @@ onBeforeRouteUpdate(async (to, from) => {
 	width: 100%;
 	max-width: var(--max-width);
 	margin: 0 auto;
-	padding: 0 1em;
+	padding: 0 1rem;
 }
 
-@media screen and (min-width: 340px) {
+@media (min-width: 375px) {
 	.content__timetable {
-		padding: 0 1.5em;
+		padding: 0 1.5rem;
 	}
 }
 
-@media screen and (min-width: 440px) {
+@media (min-width: 440px) {
 	.content__timetable {
-		padding: 0 2em;
+		padding: 0 2rem;
 	}
 }
 
 .timetable {
 	display: grid;
-	gap: 2em 0;
+	gap: 2rem 0;
 }
 
-@media screen and (min-width: 500px) {
+@media (min-width: 500px) {
 	.timetable {
-		gap: 2em 0;
+		gap: 2rem 0;
 	}
 }
 
-@media screen and (min-width: 900px) {
+@media (min-width: 900px) {
 	.timetable {
 		justify-content: stretch;
 	}
@@ -202,7 +202,7 @@ onBeforeRouteUpdate(async (to, from) => {
 	margin: 0 auto;
 }
 
-@media screen and (min-width: 550px) {
+@media (min-width: 550px) {
 	.timetable__time {
 		display: none;
 	}
@@ -210,23 +210,23 @@ onBeforeRouteUpdate(async (to, from) => {
 
 .timetable__list {
 	display: grid;
-	gap: 2em 0;
+	gap: 2rem 0;
 }
 
-@media screen and (min-width: 560px) {
+@media (min-width: 560px) {
 	.timetable__list {
-		column-gap: 1.4em;
+		column-gap: 1.4rem;
 	}
 }
 
-@media screen and (min-width: 900px) {
+@media (min-width: 900px) {
 	.timetable__list {
 		display: grid;
 		grid-template-columns: min-content min-content;
 	}
 }
 
-@media screen and (min-width: 1240px) {
+@media (min-width: 1240px) {
 	.timetable__list {
 		display: grid;
 		grid-template-columns: min-content min-content min-content;

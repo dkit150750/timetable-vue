@@ -50,7 +50,7 @@ const closeSpock = () => {
 
 <style>
 .footer {
-	padding: 2em 0;
+	padding: 2rem 0;
 }
 
 .footer__container {
@@ -60,7 +60,7 @@ const closeSpock = () => {
 
 	max-width: var(--max-width);
 	margin: 0 auto;
-	padding: 0 1em;
+	padding: 0 1rem;
 }
 
 .footer__copy {
@@ -103,7 +103,7 @@ const closeSpock = () => {
 }
 
 .footer__teleskop {
-	font-size: 1.2em;
+	font-size: 1.2rem;
 	text-decoration: none;
 
 	user-select: none;

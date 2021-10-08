@@ -10,7 +10,7 @@
 <style>
 .not-found {
 	height: 100%;
-	padding: 2em 0;
+	padding: 2rem 0;
 }
 
 .not-found__container {
@@ -20,7 +20,7 @@
 	height: 100%;
 	max-width: var(--max-width);
 	margin: 0 auto;
-	padding: 0 1em;
+	padding: 0 1rem;
 }
 
 .not-found__title {
@@ -39,7 +39,7 @@
 	padding: 0.4em 0.7em;
 
 	color: var(--color-gray-100);
-	font-size: 1.3em;
+	font-size: 1.3rem;
 	text-decoration: none;
 
 	border-radius: 0.2em;

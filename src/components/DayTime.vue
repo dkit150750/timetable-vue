@@ -29,11 +29,11 @@ const classObject = computed(() => ({
 <style>
 .time {
 	max-width: 340px;
-	padding: 0.4em 0;
+	padding: 0.4rem 0;
 
 	font-family: 'JetBrains Mono', monospace;
 
-	border-radius: 0.8em;
+	border-radius: 0.8rem;
 
 	background-color: var(--time-background);
 
@@ -46,8 +46,8 @@ const classObject = computed(() => ({
 	display: flex;
 	align-items: center;
 
-	height: 3em;
-	padding: 0 1em;
+	height: 3rem;
+	padding: 0 1rem;
 
 	user-select: none;
 }
@@ -57,6 +57,6 @@ const classObject = computed(() => ({
 }
 
 .time--total .time__item {
-	height: 2em;
+	height: 2rem;
 }
 </style>

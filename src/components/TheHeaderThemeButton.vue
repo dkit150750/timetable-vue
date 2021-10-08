@@ -148,6 +148,7 @@ const classObject = computed(() => ({
 	padding: 0;
 
 	color: inherit;
+	font-size: 0.83rem;
 	line-height: 1;
 
 	border: 0;
@@ -185,7 +186,7 @@ const classObject = computed(() => ({
 	background-image: url('/images/icon-header-3.png');
 }
 
-@media screen and (min-width: 640px) {
+@media (min-width: 640px) {
 	.theme-button__icon {
 		width: 2.4em;
 		height: 2.4em;
