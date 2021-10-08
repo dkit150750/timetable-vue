@@ -15,31 +15,27 @@
 				/>
 			</svg>
 		</button>
-		<div v-if="groups.length > 1" ref="target" class="groups-dropdown-menu-wrapper">
+		<div v-if="groups.length > 1" ref="target" class="groups-dropdown-menu">
 			<div
 				class="groups-dropdown-menu-overlay"
 				:class="{ 'groups-dropdown-menu-overlay--open': isOpenDropdownMenu }"
 				@click="closeHandler"
 			></div>
-			<div
+			<ul
 				v-if="groups.length > 1"
-				class="groups-dropdown-menu"
-				:class="{ 'groups-dropdown-menu--open': isOpenDropdownMenu }"
+				class="group-dropdown-menu__list"
+				:class="{ 'group-dropdown-menu__list--open': isOpenDropdownMenu }"
 			>
-				<div class="groups-dropdown-menu__inner">
-					<ul class="group-dropdown-menu__list">
-						<li v-for="group in groups" :key="group.id" class="groups-dropdown-menu__item">
-							<router-link
-								class="groups-dropdown-menu__link"
-								:to="`/courses/${group.course}/groups/${group.slug}`"
-								:tabindex="isOpenDropdownMenu ? 1 : -1"
-								@click="closeHandler"
-								>{{ group.name }}</router-link
-							>
-						</li>
-					</ul>
-				</div>
-			</div>
+				<li v-for="group in groups" :key="group.id" class="groups-dropdown-menu__item">
+					<router-link
+						class="groups-dropdown-menu__link"
+						:to="`/courses/${group.course}/groups/${group.slug}`"
+						:tabindex="isOpenDropdownMenu ? 1 : -1"
+						@click="closeHandler"
+						>{{ group.name }}</router-link
+					>
+				</li>
+			</ul>
 		</div>
 	</div>
 </template>
@@ -160,15 +156,20 @@ const closeHandler = () => {
 	pointer-events: all;
 }
 
-.groups-dropdown-menu {
+.group-dropdown-menu__list {
 	position: absolute;
 	top: calc(100% + 0.5rem);
 	left: -0.5em;
 	z-index: 10;
 
+	margin: 0;
+	padding: 0.2em 0;
+
 	border-radius: 0.4rem;
 
 	background-color: var(--groups-dropdown-menu-background);
+
+	list-style: none;
 
 	box-shadow: var(--groups-dropdown-menu-shadow);
 
@@ -180,22 +181,11 @@ const closeHandler = () => {
 	transition: all 0.15s ease-out;
 }
 
-.groups-dropdown-menu--open {
+.group-dropdown-menu__list--open {
 	opacity: 1;
 	transform: translateY(0);
 
 	pointer-events: all;
-}
-
-.groups-dropdown-menu__inner {
-	padding: 0.2em 0;
-}
-
-.group-dropdown-menu__list {
-	margin: 0;
-	padding: 0;
-
-	list-style: none;
 }
 
 .groups-dropdown-menu__link {
