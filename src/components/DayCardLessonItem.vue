@@ -266,6 +266,8 @@ const blurHandler = () => {
 
 	color: var(--lesson-odd-color);
 
+	border-radius: 3px;
+
 	background-color: var(--lesson-odd-background);
 }
 
