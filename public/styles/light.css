@@ -18,6 +18,7 @@
 
 	/* day-card */
 	--day-card-background: var(--color-white);
+	--day-card-shadow: 1px 5px 20px -5px hsla(0, 0%, 68%, 0.35);
 	--day-card-day-color: var(--color-gray-700);
 
 	/* teachers */

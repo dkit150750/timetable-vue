@@ -37,6 +37,8 @@ const classObject = computed(() => ({
 
 	background-color: var(--time-background);
 
+	box-shadow: var(--day-card-shadow);
+
 	overflow: hidden;
 }
 

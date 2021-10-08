@@ -46,6 +46,8 @@ defineProps({
 	border-radius: 0.8em;
 
 	background-color: var(--day-card-background);
+
+	box-shadow: var(--day-card-shadow);
 }
 
 .day-card__header {
