@@ -32,49 +32,49 @@ defineProps({
 	grid-template-columns: 1fr;
 }
 
-@media screen and (min-width: 550px) {
+@media (min-width: 550px) {
 	.day-wrapper {
 		display: grid;
 		grid-template-columns: max-content 320px;
 		align-items: flex-end;
 
-		column-gap: 1.4em;
+		column-gap: 1.4rem;
 	}
 }
 
-@media screen and (min-width: 900px) and (max-width: 1239px) {
+@media (min-width: 900px) and (max-width: 1239px) {
 	.day-wrapper:nth-of-type(2n) {
 		grid-template-columns: 320px;
 	}
 }
 
-@media screen and (min-width: 1240px) {
+@media (min-width: 1240px) {
 	.day-wrapper:nth-of-type(3n - 1),
 	.day-wrapper:nth-of-type(3n) {
 		grid-template-columns: 320px;
 	}
 }
 
-@media screen and (max-width: 549px) {
+@media (max-width: 549px) {
 	.day-wrapper__time {
 		display: none;
 	}
 }
 
-@media screen and (min-width: 900px) and (max-width: 1239px) {
+@media (min-width: 900px) and (max-width: 1239px) {
 	.day-wrapper:nth-of-type(2n) .day-wrapper__time {
 		display: none;
 	}
 }
 
-@media screen and (min-width: 1240px) {
+@media (min-width: 1240px) {
 	.day-wrapper:nth-of-type(3n - 1) .day-wrapper__time,
 	.day-wrapper:nth-of-type(3n) .day-wrapper__time {
 		display: none;
 	}
 }
 
-@media screen and (max-width: 549px) {
+@media (max-width: 549px) {
 	.day-wrapper__day {
 		margin: 0 auto;
 	}

@@ -77,13 +77,13 @@ const isEmptyOdd = computed(() => !formattedFirstOddTeachers.value.name && !form
 <style>
 .teachers-tooptip {
 	position: absolute;
-	top: calc(100% + 0.4em);
-	left: 1em;
+	top: calc(100% + 0.4rem);
+	left: 1rem;
 	z-index: 100;
 
 	width: 90%;
 
-	border-radius: 0.4em;
+	border-radius: 0.4rem;
 
 	background-color: var(--teachers-background);
 
@@ -119,7 +119,7 @@ const isEmptyOdd = computed(() => !formattedFirstOddTeachers.value.name && !form
 	grid-auto-rows: 1.4rem;
 	align-items: center;
 
-	padding: 0.4em 0;
+	padding: 0.4rem 0;
 }
 
 .teachers-tooptip__names {
@@ -128,10 +128,10 @@ const isEmptyOdd = computed(() => !formattedFirstOddTeachers.value.name && !form
 	display: grid;
 	grid-auto-columns: 1fr;
 	grid-auto-flow: column;
-	gap: 1em;
+	gap: 1rem;
 
 	margin: 0;
-	padding: 0 0.6em;
+	padding: 0 0.6rem;
 }
 
 .teachers-tooptip__name {
@@ -147,9 +147,9 @@ const isEmptyOdd = computed(() => !formattedFirstOddTeachers.value.name && !form
 	display: block;
 
 	width: 2px;
-	height: 1em;
+	height: 1rem;
 
-	border-radius: 1em;
+	border-radius: 1rem;
 
 	background-color: currentColor;
 
