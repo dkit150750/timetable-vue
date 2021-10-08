@@ -163,7 +163,7 @@ const closeHandler = () => {
 	z-index: 10;
 
 	margin: 0;
-	padding: 0.2em 0;
+	padding: 0;
 
 	border-radius: 0.4rem;
 
@@ -175,6 +175,8 @@ const closeHandler = () => {
 
 	opacity: 0;
 	transform: translateY(5px);
+
+	overflow: hidden;
 
 	pointer-events: none;
 
@@ -205,5 +207,13 @@ const closeHandler = () => {
 
 .groups-dropdown-menu__link:focus-visible {
 	box-shadow: 0 0 0 2px var(--focus-visible-shadow);
+}
+
+.groups-dropdown-menu__item:first-child .groups-dropdown-menu__link {
+	padding-top: 0.45em;
+}
+
+.groups-dropdown-menu__item:last-child .groups-dropdown-menu__link {
+	padding-bottom: 0.45em;
 }
 </style>

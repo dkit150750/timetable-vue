@@ -23,7 +23,7 @@
 
 	/* teachers */
 	--teachers-background: var(--color-white);
-	--teachers-shadow: 0 0.1em 0.4em 0.1em rgba(2, 2, 2, 0.3);
+	--teachers-shadow: 1px 5px 20px -5px hsla(0, 0%, 56%, 0.8);
 
 	/* time */
 	--time-background: var(--color-white);
@@ -31,7 +31,7 @@
 	/* group-selection */
 	--group-selection-shadow: 0 0 0 2px var(--color-primary-700);
 	--groups-dropdown-menu-background: var(--color-white);
-	--groups-dropdown-menu-shadow: 0 0.1em 0.4em 0 rgba(2, 2, 2, 0.16);
+	--groups-dropdown-menu-shadow: 1px 5px 20px -5px rgba(173, 173, 173, 0.9);
 
 	/* lesson */
 	--lesson-color: var(--color-primary-900);
