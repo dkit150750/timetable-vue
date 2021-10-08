@@ -90,7 +90,14 @@ const closeHandler = () => {
 	position: relative;
 	z-index: 10;
 
+	font-size: 1.3rem;
 	font-family: 'JetBrains Mono', monospace;
+}
+
+@media (min-width: 360px) {
+	.group-selection {
+		font-size: 1.5rem;
+	}
 }
 
 .group-selection__button {
@@ -103,7 +110,7 @@ const closeHandler = () => {
 	padding: 0;
 
 	color: inherit;
-	font-size: 1.5em;
+	font-size: inherit;
 	font-family: inherit;
 	line-height: 1;
 
@@ -155,13 +162,11 @@ const closeHandler = () => {
 
 .groups-dropdown-menu {
 	position: absolute;
-	top: calc(100% + 0.5em);
-	left: -0.4em;
+	top: calc(100% + 0.5rem);
+	left: -0.4rem;
 	z-index: 10;
 
-	font-size: 1.5em;
-
-	border-radius: 0.4em;
+	border-radius: 0.4rem;
 
 	background-color: var(--groups-dropdown-menu-background);
 
@@ -196,10 +201,11 @@ const closeHandler = () => {
 .groups-dropdown-menu__link {
 	display: block;
 
-	padding: 0.3em 0.4em;
+	padding: 0.25em 0.4em;
 
 	color: inherit;
 	line-height: 1;
+	white-space: nowrap;
 	text-decoration: none;
 
 	outline: none;
