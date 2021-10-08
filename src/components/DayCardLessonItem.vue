@@ -1,51 +1,14 @@
 <template>
-	<div class="day-card__lesson">
-		<button
-			ref="button"
-			class="lesson-info day-card__lesson-info"
-			:class="classObject"
-			type="button"
-			@click="isOpenTeachers = !isOpenTeachers"
-			@blur="blurHandler()"
-		>
-			<span class="lesson-info__number">{{ number }}</span>
-
-			<span v-if="oddDiscipline.name !== 'пусто'" class="lesson-info__name lesson-info__name--odd">
-				{{ formattedOddDiscipline.name }}
-			</span>
-			<span v-if="evenDiscipline.name !== 'пусто'" class="lesson-info__name lesson-info__name--even">
-				{{ formattedEvenDiscipline.name }}
-			</span>
-
-			<span
-				v-if="!isEmptyOddCabinets"
-				class="lesson-info__cabinet lesson-info__cabinet--odd"
-				:class="classOddCabinetObject"
-			>
-				<template v-if="formattedFirstOddCabinet.name">
-					{{ formattedFirstOddCabinet.name }}
-				</template>
-				<template v-if="formattedSecondOddCabinets.name && !isEmptyEvenCabinets">/</template>
-				<template v-if="formattedSecondOddCabinets.name && isEmptyEvenCabinets"><br /></template>
-				<template v-if="formattedSecondOddCabinets.name">
-					{{ formattedSecondOddCabinets.name }}
-				</template>
-			</span>
-
-			<span
-				v-if="!isEmptyEvenCabinets"
-				class="lesson-info__cabinet lesson-info__cabinet--even"
-				:class="classEvenCabinetObject"
-			>
-				<template v-if="formattedFirstEvenCabinet.name">
-					{{ formattedFirstEvenCabinet.name }}
-				</template>
-				<template v-if="formattedSecondEvenCabinets.name && !isEmptyOddCabinets">/</template>
-				<template v-if="formattedSecondEvenCabinets.name && isEmptyOddCabinets"><br /></template>
-				<template v-if="formattedSecondEvenCabinets.name">
-					{{ formattedSecondEvenCabinets.name }}
-				</template>
-			</span>
+	<div class="lesson-wrapper">
+		<button ref="button" class="lesson" type="button" @click="isOpenTeachers = !isOpenTeachers" @blur="blurHandler()">
+			<span class="lesson__number">{{ number }}</span>
+			<DayCardLessonItemDiscipline :odd-discipline="oddDiscipline" :even-discipline="evenDiscipline" />
+			<DayCardLessonItemCabinet
+				:second-odd-cabinet="secondOddCabinet"
+				:first-odd-cabinet="firstOddCabinet"
+				:first-even-cabinet="firstEvenCabinet"
+				:second-even-cabinet="secondEvenCabinet"
+			/>
 		</button>
 
 		<transition name="teachers-tooltip">
@@ -112,46 +75,6 @@ const properties = defineProps({
 	},
 });
 
-const getFormattedData = (object: Item) => {
-	return {
-		id: object.id,
-		name: object.name === 'пусто' ? null : object.name === 'нет' ? '—' : object.name,
-	};
-};
-
-const formattedOddDiscipline = computed(() => getFormattedData(properties.oddDiscipline));
-const formattedEvenDiscipline = computed(() => getFormattedData(properties.evenDiscipline));
-const formattedFirstEvenCabinet = computed(() => getFormattedData(properties.firstEvenCabinet));
-const formattedSecondEvenCabinets = computed(() => getFormattedData(properties.secondEvenCabinet));
-const formattedFirstOddCabinet = computed(() => getFormattedData(properties.firstOddCabinet));
-const formattedSecondOddCabinets = computed(() => getFormattedData(properties.secondOddCabinet));
-
-const isEmptyOddCabinets = computed(
-	() => !formattedFirstOddCabinet.value.name && !formattedSecondOddCabinets.value.name,
-);
-const isFullOddCabinets = computed(() => formattedFirstOddCabinet.value.name && formattedSecondOddCabinets.value.name);
-
-const isEmptyEvenCabinets = computed(
-	() => !formattedFirstEvenCabinet.value.name && !formattedSecondEvenCabinets.value.name,
-);
-const isFullEvenCabinets = computed(
-	() => formattedFirstEvenCabinet.value.name && formattedSecondEvenCabinets.value.name,
-);
-const classObject = computed(() => ({
-	'lesson-info--two-name': properties.evenDiscipline.name !== 'пусто',
-	'lesson-info--two-cabinet':
-		(properties.firstOddCabinet.name !== 'пусто' || properties.secondOddCabinet.name !== 'пусто') &&
-		(properties.firstEvenCabinet.name !== 'пусто' || properties.secondEvenCabinet.name !== 'пусто'),
-}));
-
-const classOddCabinetObject = computed(() => ({
-	'lesson-info__cabinet--one-two': isEmptyEvenCabinets.value,
-	'lesson-info__cabinet--two-two': isFullOddCabinets.value && !isEmptyEvenCabinets.value,
-}));
-const classEvenCabinetObject = computed(() => ({
-	'lesson-info__cabinet--two-two': isFullEvenCabinets.value && !isEmptyOddCabinets.value,
-}));
-
 const isOpenTeachers = ref(false);
 const isEmptyTeachers = computed(
 	() =>
@@ -161,27 +84,26 @@ const isEmptyTeachers = computed(
 		properties.secondEvenTeacher.name === 'пусто',
 );
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const button: any = ref(null);
+const button = ref<HTMLButtonElement>();
 
 const blurHandler = () => {
 	if (isOpenTeachers.value && !isEmptyTeachers.value) {
-		button.value.focus();
+		button.value?.focus();
 	}
 };
 </script>
 
 <style>
-.day-card__lesson {
+.lesson-wrapper {
 	position: relative;
 }
 
-.lesson-info {
+.lesson {
 	position: relative;
 
 	display: grid;
-	grid-template-rows: 1fr 1fr;
 	grid-template-columns: 1.2ch 1fr 5.5ch;
+	align-items: stretch;
 
 	width: 100%;
 	height: 3rem;
@@ -205,11 +127,11 @@ const blurHandler = () => {
 	user-select: none;
 }
 
-.lesson-info:focus {
+.lesson:focus {
 	outline: none;
 }
 
-.lesson-info:focus-visible::before {
+.lesson:focus-visible::before {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -223,95 +145,22 @@ const blurHandler = () => {
 	box-shadow: 0 0 0 2px var(--lesson-focus-visible-shadow);
 }
 
-.day-card__lesson:last-child .lesson-info {
+.lesson-wrapper:last-child .lesson {
 	border-bottom-right-radius: 2px 8px;
 	border-bottom-left-radius: 2px 8px;
 }
 
-.day-card__lesson:nth-child(odd) .lesson-info {
+.lesson-wrapper:nth-child(odd) .lesson {
 	background-color: var(--lesson-background);
 }
 
-.lesson-info__number {
-	grid-row: 1 / 3;
-	grid-column: 1 / 2;
-
+.lesson__number {
 	justify-self: center;
 	align-self: center;
 
 	font-weight: 600;
+	font-family: 'JetBrains Mono', monospace;
 
 	user-select: none;
-}
-
-.lesson-info__name {
-	grid-row: 1 / 3;
-	grid-column: 2 / 3;
-
-	justify-self: flex-start;
-	align-self: center;
-
-	width: 100%;
-	max-height: 3rem;
-	padding: 0 0.1rem;
-
-	text-align: initial;
-	text-overflow: ellipsis;
-
-	overflow: hidden;
-}
-
-.lesson-info__name--even {
-	grid-row: 2 / 3;
-
-	color: var(--lesson-odd-color);
-
-	border-radius: 3px;
-
-	background-color: var(--lesson-odd-background);
-}
-
-.lesson-info--two-name .lesson-info__name--odd,
-.lesson-info--two-name .lesson-info__name--even {
-	height: 100%;
-
-	line-height: 1.5;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-}
-
-.lesson-info--two-name .lesson-info__name--odd {
-	grid-row: 1 / 2;
-}
-
-.lesson-info__cabinet {
-	grid-row: 1 / 3;
-	grid-column: 3 / 4;
-
-	justify-self: flex-end;
-	align-self: center;
-
-	line-height: 1.2;
-	text-align: end;
-}
-
-.lesson-info__cabinet--two-two {
-	font-size: 0.85rem;
-}
-
-.lesson-info--two-cabinet .lesson-info__cabinet--odd {
-	grid-row: 1 / 2;
-	grid-column: 3 / 4;
-}
-
-.lesson-info--two-cabinet .lesson-info__cabinet--even {
-	grid-row: 2 / 3;
-	grid-column: 3 / 4;
-}
-
-.lesson-info__cabinet--one-two {
-	grid-row: 1 / 3;
-
-	line-height: 1.3;
 }
 </style>

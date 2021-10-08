@@ -1,19 +1,19 @@
 <template>
-	<div class="teachers-tooptip" @click.self="$emit('update:modelValue', false)">
-		<div class="teachers-tooptip__inner">
-			<div v-if="!isEmptyOdd" class="teachers-tooptip__names">
-				<span v-if="formattedFirstOddTeachers?.name" class="teachers-tooptip__name">
+	<div class="lesson-teachers" @click.self="$emit('update:modelValue', false)">
+		<div class="lesson-teachers__inner">
+			<div v-if="!isEmptyOdd" class="lesson-teachers__line">
+				<span v-if="formattedFirstOddTeachers?.name" class="lesson-teachers__name">
 					{{ formattedFirstOddTeachers.name }}
 				</span>
-				<span v-if="formattedSecondOddTeachers?.name" class="teachers-tooptip__name">
+				<span v-if="formattedSecondOddTeachers?.name" class="lesson-teachers__name">
 					{{ formattedSecondOddTeachers.name }}
 				</span>
 			</div>
-			<div v-if="!isEmptyEven" class="teachers-tooptip__names">
-				<span v-if="formattedFirstEvenTeachers?.name" class="teachers-tooptip__name">
+			<div v-if="!isEmptyEven" class="lesson-teachers__line">
+				<span v-if="formattedFirstEvenTeachers?.name" class="lesson-teachers__name">
 					{{ formattedFirstEvenTeachers.name }}
 				</span>
-				<span v-if="formattedSecondEvenTeachers?.name" class="teachers-tooptip__name">
+				<span v-if="formattedSecondEvenTeachers?.name" class="lesson-teachers__name">
 					{{ formattedSecondEvenTeachers.name }}
 				</span>
 			</div>
@@ -75,7 +75,7 @@ const isEmptyOdd = computed(() => !formattedFirstOddTeachers.value.name && !form
 </script>
 
 <style>
-.teachers-tooptip {
+.lesson-teachers {
 	position: absolute;
 	top: calc(100% + 0.4rem);
 	left: 1rem;
@@ -104,7 +104,7 @@ const isEmptyOdd = computed(() => !formattedFirstOddTeachers.value.name && !form
 	transform: translateY(5px);
 }
 
-.teachers-tooptip::before {
+.lesson-teachers::before {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -114,7 +114,7 @@ const isEmptyOdd = computed(() => !formattedFirstOddTeachers.value.name && !form
 	z-index: -1;
 }
 
-.teachers-tooptip__inner {
+.lesson-teachers__inner {
 	display: grid;
 	grid-auto-rows: 1.4rem;
 	align-items: center;
@@ -122,7 +122,7 @@ const isEmptyOdd = computed(() => !formattedFirstOddTeachers.value.name && !form
 	padding: 0.4rem 0;
 }
 
-.teachers-tooptip__names {
+.lesson-teachers__line {
 	position: relative;
 
 	display: grid;
@@ -134,11 +134,11 @@ const isEmptyOdd = computed(() => !formattedFirstOddTeachers.value.name && !form
 	padding: 0 0.6rem;
 }
 
-.teachers-tooptip__name {
+.lesson-teachers__name {
 	user-select: none;
 }
 
-.teachers-tooptip__names .teachers-tooptip__name:nth-child(2)::before {
+.lesson-teachers__line .lesson-teachers__name:nth-child(2)::before {
 	position: absolute;
 	top: 50%;
 	left: 50%;
