@@ -9,23 +9,26 @@
 <style>
 .teleskop-content {
 	margin: auto;
+
+	overflow: hidden;
+}
+
+@media (orientation: landscape) {
+	.teleskop-content {
+		max-width: 900px;
+	}
 }
 
 .teleskop-image {
 	display: block;
 
 	max-width: 100%;
-}
-
-@media (orientation: landscape) {
-	.teleskop-image {
-		max-width: 900px;
-	}
+	max-height: 70vh;
 }
 
 .teleskop-text {
 	font-weight: 900;
-	font-family: monospace;
+	font-family: 'JetBrains Mono', monospace;
 }
 </style>
 

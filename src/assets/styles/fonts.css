@@ -91,13 +91,14 @@
 } */
 
 /* 600 | Semi Bold */
-@font-face {
+
+/* @font-face {
 	font-weight: 600;
 	font-family: 'Graphik';
 	font-style: normal;
 	src: url('../fonts/GraphikLCG-Semibold.woff2') format('woff2');
 	font-display: swap;
-}
+} */
 
 /* @font-face {
   font-family: 'Graphik';
@@ -143,12 +144,12 @@
 
 /* Graphik Super */
 
-@font-face {
+/* @font-face {
 	font-weight: 900;
 	font-family: 'Graphik Super';
 	font-style: normal;
 	src: url('../fonts/GraphikLCG-Super.woff2') format('woff2');
-}
+} */
 
 /* @font-face {
   font-family: 'Graphik Super';
@@ -167,3 +168,20 @@
 	src: url('../fonts/JetBrainsMono-Regular.woff2') format('woff2');
 	font-display: swap;
 }
+
+/* 900 | Black */
+@font-face {
+	font-weight: 900;
+	font-family: 'JetBrains Mono';
+	font-style: normal;
+	src: url('../fonts/JetBrainsMono-ExtraBold.woff2') format('woff2');
+	font-display: swap;
+}
+
+/* @font-face {
+	font-weight: normal;
+	font-family: 'JetBrains Mono';
+	font-style: normal;
+	src: url('../fonts/JetBrainsMono[wght].ttf') format('ttf');
+	font-display: swap;
+} */
