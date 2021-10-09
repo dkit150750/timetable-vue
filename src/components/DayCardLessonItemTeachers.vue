@@ -5,6 +5,7 @@
 				<span v-if="formattedFirstOddTeachers?.name" class="lesson-teachers__name">
 					{{ formattedFirstOddTeachers.name }}
 				</span>
+				<span v-if="isFullOdd" class="lesson-teachers__separator">|</span>
 				<span v-if="formattedSecondOddTeachers?.name" class="lesson-teachers__name">
 					{{ formattedSecondOddTeachers.name }}
 				</span>
@@ -13,6 +14,7 @@
 				<span v-if="formattedFirstEvenTeachers?.name" class="lesson-teachers__name">
 					{{ formattedFirstEvenTeachers.name }}
 				</span>
+				<span v-if="isFullEven" class="lesson-teachers__separator">|</span>
 				<span v-if="formattedSecondEvenTeachers?.name" class="lesson-teachers__name">
 					{{ formattedSecondEvenTeachers.name }}
 				</span>
@@ -65,23 +67,25 @@ const getFormattedTeachers = (object: Item) => ({
 	name: object.name === 'пусто' ? null : object.name === 'нет' ? '—' : object.name,
 });
 
-const formattedFirstEvenTeachers = computed(() => getFormattedTeachers(properties.firsrEvenTeacher));
-const formattedSecondEvenTeachers = computed(() => getFormattedTeachers(properties.secondEvenTeacher));
 const formattedFirstOddTeachers = computed(() => getFormattedTeachers(properties.firsrOddTeacher));
 const formattedSecondOddTeachers = computed(() => getFormattedTeachers(properties.secondOddTeacher));
+const formattedFirstEvenTeachers = computed(() => getFormattedTeachers(properties.firsrEvenTeacher));
+const formattedSecondEvenTeachers = computed(() => getFormattedTeachers(properties.secondEvenTeacher));
 
-const isEmptyEven = computed(() => !formattedFirstEvenTeachers.value.name && !formattedSecondEvenTeachers.value.name);
 const isEmptyOdd = computed(() => !formattedFirstOddTeachers.value.name && !formattedSecondOddTeachers.value.name);
+const isEmptyEven = computed(() => !formattedFirstEvenTeachers.value.name && !formattedSecondEvenTeachers.value.name);
+const isFullOdd = computed(() => formattedFirstOddTeachers.value.name && formattedSecondOddTeachers.value.name);
+const isFullEven = computed(() => formattedFirstEvenTeachers.value.name && formattedSecondEvenTeachers.value.name);
 </script>
 
 <style>
 .lesson-teachers {
 	position: absolute;
 	top: calc(100% + 0.4rem);
-	left: 1rem;
+	left: 0.5rem;
 	z-index: 100;
 
-	width: 90%;
+	width: 95%;
 
 	border-radius: 0.4rem;
 
@@ -126,33 +130,22 @@ const isEmptyOdd = computed(() => !formattedFirstOddTeachers.value.name && !form
 	position: relative;
 
 	display: grid;
-	grid-auto-columns: 1fr;
+	grid-auto-columns: 49% 1ch 49%;
 	grid-auto-flow: column;
-	gap: 1rem;
 
 	margin: 0;
 	padding: 0 0.6rem;
+
+	font-size: 14px;
 }
 
 .lesson-teachers__name {
+	white-space: nowrap;
+
 	user-select: none;
 }
 
-.lesson-teachers__line .lesson-teachers__name:nth-child(2)::before {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	content: '';
-
-	display: block;
-
-	width: 2px;
-	height: 1rem;
-
-	border-radius: 1rem;
-
-	background-color: currentColor;
-
-	transform: translate(-50%, -50%);
+.lesson-teachers__separator {
+	text-align: center;
 }
 </style>

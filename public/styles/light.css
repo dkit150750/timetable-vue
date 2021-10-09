@@ -23,7 +23,7 @@
 
 	/* teachers */
 	--teachers-background: var(--color-white);
-	--teachers-shadow: 1px 5px 20px -5px hsla(0, 0%, 56%, 0.8);
+	--teachers-shadow: 1px 5px 20px -5px hsla(0, 0%, 56%, 0.9);
 
 	/* time */
 	--time-background: var(--color-white);
