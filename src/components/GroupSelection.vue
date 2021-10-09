@@ -84,7 +84,7 @@ const closeHandler = () => {
 <style>
 .group-selection {
 	position: relative;
-	z-index: 10;
+	z-index: 1;
 
 	font-size: 1.3rem;
 	font-family: 'JetBrains Mono', monospace;
@@ -147,7 +147,6 @@ const closeHandler = () => {
 	bottom: 0;
 	right: 0;
 	content: '';
-	z-index: 5;
 
 	pointer-events: none;
 }
