@@ -33,7 +33,7 @@ const properties = defineProps({
 const getFormattedData = (object: Item) => {
 	return {
 		id: object.id,
-		name: object.name === 'пусто' ? null : object.name === 'нет' ? '——' : object.name,
+		name: object.name === 'пусто' ? null : object.name === 'нет' ? '—' : object.name,
 	};
 };
 
