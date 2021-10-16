@@ -3,7 +3,7 @@
 		<span class="circle"></span>
 		<span class="circle circle--2"></span>
 		<div class="not-work__container">
-			<img class="not-work__image" src="/images/Annoying_Dog-0.gif" alt="" />
+			<img class="not-work__image" width="200" height="165" src="/images/Annoying_Dog-0.gif" alt="" />
 			<h1 class="not-work__title">
 				Закрыто
 				<ph:play-fill class="not-work__button-icon" />
