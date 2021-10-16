@@ -9,5 +9,5 @@ router.push('/doggo');
 
 <route lang="yaml">
 meta:
-  layout: work
+  layout: doggo
 </route>
