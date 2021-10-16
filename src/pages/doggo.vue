@@ -3,7 +3,11 @@
 		<span class="circle"></span>
 		<span class="circle circle--2"></span>
 		<div class="not-work__container">
-			<img class="not-work__image" width="200" height="165" src="/images/Annoying_Dog-0.gif" alt="" />
+			<div class="not-work__image-wrapper">
+				<div class="not-work__image-inner">
+					<img class="not-work__image" src="/images/Annoying_Dog-0.gif" alt="" />
+				</div>
+			</div>
 			<h1 class="not-work__title">
 				Закрыто
 				<ph:play-fill class="not-work__button-icon" />
@@ -19,6 +23,7 @@ const audio = ref<HTMLAudioElement | null>(null);
 const run = () => {
 	audio.value?.play();
 };
+// console.log(count.value);
 </script>
 
 <style>
@@ -53,10 +58,61 @@ const run = () => {
 	user-select: none;
 }
 
+.not-work__image-wrapper {
+	width: 200px;
+}
+
+@media (min-width: 500px) {
+	.not-work__image-wrapper {
+		width: 300px;
+	}
+	.not-work__title {
+		font-size: 4rem;
+	}
+}
+
+@media (min-width: 1000px) {
+	.not-work__image-wrapper {
+		width: 400px;
+	}
+	.not-work__title {
+		font-size: 5rem;
+	}
+}
+
+@media (min-width: 1200px) {
+	.not-work__image-wrapper {
+		width: 500px;
+	}
+	.not-work__title {
+		font-size: 6rem;
+	}
+}
+
+@media (min-width: 1600px) {
+	.not-work__image-wrapper {
+		width: 600px;
+	}
+	.not-work__title {
+		font-size: 7rem;
+	}
+}
+
+.not-work__image-inner {
+	position: relative;
+
+	padding-bottom: 82.5%;
+}
+
 .not-work__image {
+	position: absolute;
+	top: 0;
+	left: 0;
+
 	display: block;
 
-	max-width: 200px;
+	width: 100%;
+	height: 100%;
 }
 
 .not-work__button {
@@ -67,6 +123,7 @@ const run = () => {
 	width: 40px;
 	height: 40px;
 }
+
 .not-work__button-icon {
 	height: 0.9em;
 
@@ -75,6 +132,7 @@ const run = () => {
 	filter: drop-shadow(3px 3px 3px rgba(151, 8, 207, 0.7)) drop-shadow(3px 3px 3px rgba(151, 8, 207, 0.7))
 		drop-shadow(-3px -3px 3px rgba(255, 6, 201, 0.7)) drop-shadow(-3px -3px 3px rgba(255, 6, 201, 0.7));
 }
+
 .not-work__button-icon path {
 	fill: hsl(251, 59%, 11%);
 }
