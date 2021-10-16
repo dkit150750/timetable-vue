@@ -14,19 +14,11 @@
 </template>
 
 <script setup lang="ts">
-import { count } from '~/stores/count';
-
-if (count.value < 2) {
-	count.value += 1;
-	const router = useRouter();
-	router.push('/');
-}
 const audio = ref<HTMLAudioElement | null>(null);
 
 const run = () => {
 	audio.value?.play();
 };
-// console.log(count.value);
 </script>
 
 <style>
