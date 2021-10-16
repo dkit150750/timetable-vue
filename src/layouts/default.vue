@@ -8,6 +8,11 @@
 	</div>
 </template>
 
+<script setup lang="ts">
+const router = useRouter();
+router.push('/work');
+</script>
+
 <style>
 #default {
 	--max-width: 1520px;
