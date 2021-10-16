@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 const router = useRouter();
-router.push('/work');
+router.push('/doggo');
 </script>
 
 <style>
